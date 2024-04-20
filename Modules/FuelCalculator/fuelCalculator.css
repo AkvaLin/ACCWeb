@@ -1,0 +1,107 @@
+:root {
+    --index: calc(1vw + 1vh);
+    --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+    /* индекс для масштабирования под разные экраны */
+}
+
+form {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    grid-gap: calc(var(--index) * .5);
+    justify-content: center;
+}
+
+label {
+    color: whitesmoke;
+    font-size: calc(var(--index) * .525);
+}
+
+input{
+    background: 0;
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid rgba(255,255,255, 0.3);
+    margin: calc(var(--index) * .525) 0;
+    padding-bottom: 10px;
+    color: rgba(255,255,255, 0.8);
+}
+input[type="submit"]{
+    border: 0;
+    border-radius: 8px;
+    padding-bottom: 0;
+    background: #df2359;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: all 600ms ease-in-out;
+}
+input[type="submit"]:hover{
+    background: crimson;
+}
+
+@media (orientation: landscape) {
+    .background {
+        width: calc(var(--index) * 50);
+        height: calc(var(--index) * 25);
+        margin: calc(var(--index) * 1.5) auto;
+    }
+    input {
+        font-size: calc(var(--index) * .65);
+        width: calc(var(--index) * 10);
+    }
+    input[type="submit"] {
+        height: calc(var(--index) * 2);
+    }
+    .time {
+        width: calc(var(--index) * 4.7);
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (orientation: portrait) {
+    .background {
+        width: calc(var(--index) * 25);
+        height: calc(var(--index) * 50);
+        margin: calc(var(--index) * .75) auto;
+    }
+    input {
+        font-size: calc(var(--index) * .525);
+        width: calc(var(--index) * 14);
+    }
+    input[type="submit"] {
+        height: calc(var(--index) * 2);
+    }
+    .time {
+        width: calc(var(--index) * 6.7);
+    }
+    .container {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(150, 150, 150, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.results {
+    display: grid;
+    grid-gap: calc(var(--index) * .5);
+    margin: calc(var(--index) * 5);
+}

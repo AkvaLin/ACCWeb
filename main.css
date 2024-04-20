@@ -1,0 +1,183 @@
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('Resources/Fonts/MyriadPro/MyriadPro-BlackCond.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('Resources/Fonts/MyriadPro/MyriadPro-BlackCondIt.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Blair ITC';
+    src: url("Resources/Fonts/Blair ITC/Blair ITC Medium.otf");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Blair ITC';
+    src: url("Resources/Fonts/Blair ITC/blair-itc-light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Blair ITC';
+    src: url("Resources/Fonts/Blair ITC/Blair ITC Std Regular.otf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SF Pro";
+    src: url("Resources/Fonts/San Francisco Pro Display/SF-Pro-Display-Light.otf");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SF Pro";
+    src: url("Resources/Fonts/San Francisco Pro Display/SF-Pro-Display-Regular.otf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SF Pro";
+    src: url("Resources/Fonts/San Francisco Pro Display/SF-Pro-Display-Semibold.otf");
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SF Pro";
+    src: url("Resources/Fonts/San Francisco Pro Display/SF-Pro-Display-Medium.otf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+    --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+    /* индекс для масштабирования под разные экраны */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Blair ITC';
+}
+
+body {
+    min-height: 100vh;
+    background: url("Resources/Images/1169030.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+span, li {
+    font-family: "SF Pro";
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: whitesmoke;
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+@media (orientation: portrait) {
+    .header {
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: calc(var(--index) * .5) calc(var(--index) * 1.5);
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.7));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: sticky;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .logo, .profile, .navbar a {
+        color: whitesmoke;
+        text-decoration: none;
+        font-size: calc(var(--index) * .525);
+    }
+
+    .logo {
+        font-family: MyriadPro;
+        font-size: calc(var(--index) * .85);
+        font-style: italic;
+    }
+
+    .profile {
+        height: calc(var(--index) * .85);
+        width: calc(var(--index) * .85);
+        margin-top: calc(var(--index) * .25);
+    }
+
+    .navbar a {
+        position: relative;
+        margin-left: calc(var(--index) * .4);
+    }
+}
+
+@media (orientation: landscape) {
+    .header {
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: calc(var(--index) * 1) calc(var(--index) * 3);
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.7));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: sticky;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .logo, .profile, .navbar a {
+        color: whitesmoke;
+        text-decoration: none;
+        font-size: calc(var(--index) * .65);
+    }
+
+    .logo {
+        font-family: MyriadPro;
+        font-size: calc(var(--index) * 1.3);
+        font-style: italic;
+        transition: all 600ms ease-in-out;
+    }
+
+    .profile {
+        height: calc(var(--index) * 1.3);
+        width: calc(var(--index) * 1.3);
+        margin-top: calc(var(--index) * .5);
+    }
+
+    .logo:hover {
+        color: crimson;
+    }
+
+    .profile:hover {
+        filter: invert(23%) sepia(97%) saturate(6270%) hue-rotate(341deg) brightness(88%) contrast(95%);
+    }
+
+    .navbar a {
+        position: relative;
+        margin-left: calc(var(--index) * .8);
+    }
+}

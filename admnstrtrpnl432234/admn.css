@@ -1,0 +1,36 @@
+:root {
+    --index: calc(1vw + 1vh);
+    --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+    /* индекс для масштабирования под разные экраны */
+}
+
+.bck {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--index) * 1.5);
+}
+.admnGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: calc(var(--index) * 1.5);
+}
+.inputButton {
+    width: 100%;
+}
+hr.rounded {
+    border-top: 3px solid whitesmoke;
+    border-radius: 5px;
+}
+hr.roundedExtended {
+    border-top: 3px solid whitesmoke;
+    border-radius: 5px;
+    width: 150%;
+}
+.light {
+    padding-bottom: calc(var(--index) * 1.5);
+}
+.tableItem {
+    padding: calc(var(--index) * .3);
+}

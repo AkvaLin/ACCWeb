@@ -1,0 +1,181 @@
+<a href='admnstrtrpnllnk.php?exit=true' class="light">Exit</a>
+<div class='admnGrid'>
+    <hr class="roundedExtended"><hr class="rounded">
+    <h1>Classes</h1>
+    <div></div>
+    <div>
+        <h4>Delete classes</h4>
+        <form action='admnstrtrpnllnk.php' method='post' id="dc">
+            <table>
+                <tr>
+                    <td><div class='tableItem'></div></td>
+                    <td><div class='tableItem'><b>ID</b></div></td>
+                    <td><div class='tableItem'><b>CLASS</b></div></td>
+                </tr>
+                <?php
+                   $classes = mysqli_query($sql, 'SELECT * FROM Classes');
+                   while ($class = mysqli_fetch_assoc($classes)) {
+                       echo "
+                       <tr>
+                <td><div class='tableItem'><input type='checkbox' name='classesToDelete[]' value='$class[id]'></div></td>
+                <td><div class='tableItem'>$class[id]</div></td>
+                <td><div class='tableItem'>$class[class]</div></td>
+                </tr>
+                ";
+                }
+                ?>
+            </table>
+        </form>
+    </div>
+    <div>
+        <h4>Add class</h4>
+        <form action='admnstrtrpnllnk.php' method='post' id="ac">
+            <input type='text' name='newClass' placeholder='New class name' required>
+        </form>
+    </div>
+    <div>
+        <input type='submit' value='Delete selected' form="dc" class="inputButton">
+    </div>
+    <div>
+        <input type='submit' value='Add class' form="ac" class="inputButton">
+    </div>
+    <hr class="roundedExtended"><hr class="rounded">
+    <h1>Tracks</h1>
+    <div></div>
+    <div>
+        <h4>Delete tracks</h4>
+        <form action='admnstrtrpnllnk.php' method='post' id="dt">
+            <table>
+                <tr>
+                    <td><div class='tableItem'></div></td>
+                    <td><div class='tableItem'><b>ID</b></div></td>
+                    <td><div class='tableItem'><b>TRACK</b></div></td>
+                </tr>
+                <?php
+                   $tracks = mysqli_query($sql, 'SELECT * FROM Tracks');
+                   while ($track = mysqli_fetch_assoc($tracks)) {
+                       echo "
+                       <tr>
+                <td><div class='tableItem'><input type='checkbox' name='tracksToDelete[]' value='$track[id]'></div></td>
+                <td><div class='tableItem'>$track[id]</div></td>
+                <td><div class='tableItem'>$track[track]</div></td>
+                </tr>
+                ";
+                }
+                ?>
+            </table>
+        </form>
+    </div>
+    <div>
+        <h4>Add track</h4>
+        <form action='admnstrtrpnllnk.php' method='post' id="at">
+            <input type='text' name='newTrack' placeholder='New track name' required>
+        </form>
+    </div>
+    <div>
+        <input type='submit' value='Delete selected' form="dt" class="inputButton">
+    </div>
+    <div>
+        <input type='submit' value='Add track' form="at" class="inputButton">
+    </div>
+    <hr class="roundedExtended"><hr class="rounded">
+    <h1>Tire pressure</h1>
+    <div></div>
+    <div>
+        <h4>Delete pressure</h4>
+        <form method='post' action='admnstrtrpnllnk.php' id="dp">
+            <table>
+                <tbody>
+                <tr>
+                    <td rowspan='2'></div></td>
+                    <td rowspan='2'>id</div></td>
+                    <td rowspan='2'>Tires</div></td>
+                    <td colspan='2'>Front</div></td>
+                    <td colspan='2'>Rear</div></td>
+                </tr>
+                <tr>
+                    <td class='min'>Min psi</div></td>
+                    <td class='max'>Max psi</div></td>
+                    <td class='min'>Min psi</div></td>
+                    <td class='max'>Max psi</div></td>
+                </tr>
+                <?php
+                   $tires = mysqli_query($sql, 'select * from TirePressure');
+                   while ($pressure = mysqli_fetch_assoc($tires)) {
+                       echo "
+                       <tr>
+                <td><div class='tableItem'><input type='checkbox' name='tireToDelete[]' value='$pressure[id]'></div></td>
+                <td><div class='tableItem'>$pressure[id]</div></td>
+                <td><div class='tableItem'>$pressure[class]</div></td>
+                <td><div class='tableItem'>$pressure[frontMin]</div></td>
+                <td><div class='tableItem'>$pressure[frontMax]</div></td>
+                <td><div class='tableItem'>$pressure[rearMin]</div></td>
+                <td><div class='tableItem'>$pressure[rearMax]</div></td>
+                </tr>
+                ";
+                }
+                ?>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div>
+        <h4>Add pressure</h4>
+        <form action='admnstrtrpnllnk.php' method='post' id="ap">
+            <div><input type='text' name='class' placeholder='Class name' required></div>
+            <div><input type='text' name='fmi' placeholder='Front min' required></div>
+            <div><input type='text' name='fma' placeholder='Front max' required></div>
+            <div><input type='text' name='rmi' placeholder='Rear min' required></div>
+            <div><input type='text' name='rma' placeholder='Rear max' required></div>
+        </form>
+    </div>
+    <div><input type='submit' value='Delete pressure' form="dp" class="inputButton"></div>
+    <div><input type='submit' value='Add pressure' form="ap" class="inputButton"></div>
+    <div>
+        <h4>Update pressure</h4>
+        <form action='admnstrtrpnllnk.php' method='post' id="up">
+            <select name='updateTire'><?php
+                  $tires = mysqli_query($sql, 'select * from TirePressure');
+                  while ($pressure = mysqli_fetch_assoc($tires)) {
+                      echo "<option value='$pressure[id]'>$pressure[class]</option>"; } ?>
+            </select>
+            <div><input type='text' name='class' placeholder='Class name' required></div>
+            <div><input type='text' name='fmi' placeholder='Front min' required></div>
+            <div><input type='text' name='fma' placeholder='Front max' required></div>
+            <div><input type='text' name='rmi' placeholder='Rear min' required></div>
+            <div><input type='text' name='rma' placeholder='Rear max' required></div>
+        </form>
+    </div>
+    <div></div>
+    <div><input type='submit' value='Update pressure' form="up" class="inputButton"></div>
+    <div></div>
+    <hr class="roundedExtended"><hr class="rounded">
+    <h1>Admins</h1>
+    <div></div>
+    <div>
+        <h4>Add admin</h4>
+        <form action='admnstrtrpnllnk.php' method='post' id="aa">
+            <div><input type='text' name='login' placeholder='login' required></div>
+            <div><input type='text' name='password' placeholder='password' required></div>
+        </form>
+    </div>
+    <div>
+        <form action='admnstrtrpnllnk.php' method='post'>
+            <div>
+                <h4>Remove admin</h4>
+                <select name='admin' id="ra">
+                    <?php
+                       $admins = mysqli_query($sql, 'select * from Admins');
+                       while ($admin = mysqli_fetch_assoc($admins)) {
+                           if ($admin['login'] != $_SESSION['admin']) {
+                               echo "<option value='$admin[id]'>$admin[login]</option>";
+                    }
+                    }
+                    ?>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div><input type='submit' value='Add admin' form="aa" class="inputButton"></div>
+    <div><input type='submit' value='Remove admin' form="ra" class="inputButton"></div>
+</div>

@@ -1,0 +1,15 @@
+.profileBackground {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eventsInfo {
+    width: auto;
+}
+
+@media (orientation: landscape) {
+    .eventsInfoContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
